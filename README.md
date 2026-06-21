@@ -1,25 +1,82 @@
-# CODING AGENTS: READ THIS FIRST
+# Mustafa Mahmoud — Portfolio
 
-This is a **handoff bundle** from Claude Design (claude.ai/design).
+A premium, dark-mode personal portfolio for **Mustafa Mahmoud**, Full-Stack Web
+Developer & Team Lead at Eaalim. Built with **Next.js (App Router) + TypeScript +
+Tailwind CSS**, implemented from the design exported via Claude Design.
 
-A user mocked up designs in HTML/CSS/JS using an AI design tool, then exported this bundle so a coding agent can implement the designs for real.
+## Tech stack
 
-## What you should do — IMPORTANT
+- **Next.js 14** (App Router, static-rendered single page)
+- **TypeScript** (strict)
+- **Tailwind CSS** with a custom theme (exact brand palette, fonts, keyframes)
+- **next/font** for Space Grotesk, Inter, and JetBrains Mono (self-hosted)
+- Interactive wireframe-sphere hero rendered on `<canvas>` (client component)
 
-**Read the chat transcripts first.** There are 1 chat transcript(s) in `chats/`. The transcripts show the full back-and-forth between the user and the design assistant — they tell you **what the user actually wants** and **where they landed** after iterating. Don't skip them. The final HTML files are the output, but the chat is where the intent lives.
+## Getting started
 
-**Read `project/Portfolio.dc.html` in full.** The user had this file open when they triggered the handoff, so it's almost certainly the primary design they want built. Read it top to bottom — don't skim. Then **follow its imports**: open every file it pulls in (shared components, CSS, scripts) so you understand how the pieces fit together before you start implementing.
+```bash
+npm install
+npm run dev      # http://localhost:3000
+```
 
-**If anything is ambiguous, ask the user to confirm before you start implementing.** It's much cheaper to clarify scope up front than to build the wrong thing.
+Other scripts:
 
-## About the design files
+```bash
+npm run build    # production build
+npm run start    # serve the production build
+npm run lint     # eslint
+```
 
-The design medium is **HTML/CSS/JS** — these are prototypes, not production code. Your job is to **recreate them pixel-perfectly** in whatever technology makes sense for the target codebase (React, Vue, native, whatever fits). Match the visual output; don't copy the prototype's internal structure unless it happens to fit.
+## Project structure
 
-**Don't render these files in a browser or take screenshots unless the user asks you to.** Everything you need — dimensions, colors, layout rules — is spelled out in the source. Read the HTML and CSS directly; a screenshot won't tell you anything they don't.
+```
+app/
+  layout.tsx        # fonts, metadata, global shell
+  page.tsx          # assembles all sections in order
+  globals.css       # base styles + CSS scroll-reveal + glass/gradient utilities
+components/
+  Navbar.tsx        # sticky glass navbar (MM logo, links, Resume)
+  Hero.tsx          # headline, CTAs, aurora glow, grid, orbital rings
+  WireframeSphere.tsx  # canvas sphere that reacts to the cursor ("use client")
+  Stats.tsx         # 2+ yrs · 700+ families · 15+ countries · Team Lead
+  About.tsx         # story + avatar placeholder
+  TechStack.tsx     # 8 glowing tech cards
+  Projects.tsx      # 3 featured project cards
+  Experience.tsx    # vertical timeline
+  Contact.tsx       # CTA panel + email/LinkedIn/GitHub
+  Footer.tsx
+lib/
+  data.ts           # all copy/content (stats, stack, projects, timeline, links)
+```
 
-## Bundle contents
+All editable content lives in **`lib/data.ts`** — update copy there rather than
+in the components.
 
-- `README.md` — this file
-- `chats/` — conversation transcripts (read these!)
-- `project/` — the `Untitled` project files (HTML prototypes, assets, components)
+## Design fidelity
+
+The visual design (colors, type, spacing, animations) is ported faithfully from
+the prototype in `project/Portfolio.dc.html`. Key choices:
+
+- Exact palette: `#0A0E1A` background, `#2563EB`/`#7C3AED`/`#22D3EE` accents,
+  `#F8FAFC` headings, `#94A3B8` body — defined as Tailwind theme tokens in
+  `tailwind.config.ts`.
+- Scroll-reveal uses **CSS scroll-driven animations** (`animation-timeline:
+  view()`), matching the prototype's final approach, with content visible by
+  default so it can never be stranded hidden and degrades gracefully where the
+  feature is unsupported. Honors `prefers-reduced-motion`.
+
+## TODO — swap in real content
+
+These placeholders are intentional (kept per the original design hand-off):
+
+- **Avatar portrait** — striped placeholder in `components/About.tsx`.
+- **Project screenshots** — striped placeholders in `components/Projects.tsx`.
+- **Links** — `resume`, `linkedin`, and `github` are `#` in `lib/data.ts`; set
+  them to your real URLs.
+
+## Design source
+
+The original Claude Design export is preserved for reference:
+
+- `project/Portfolio.dc.html` — the exported HTML/JS prototype
+- `chats/` — the design conversation transcript
