@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:#0A0E1A;}
+  ::selection{background:rgba(34,211,238,0.3);color:#F8FAFC;}
+  @keyframes mmfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+  @keyframes mmspin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+  @keyframes mmspinr{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+  @keyframes mmaurora{0%{transform:translate(0,0) scale(1)}33%{transform:translate(4%,-3%) scale(1.08)}66%{transform:translate(-3%,3%) scale(0.96)}100%{transform:translate(0,0) scale(1)}}
+  @keyframes mmpulse{0%,100%{opacity:0.5}50%{opacity:1}}
+  @keyframes mmgrad{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+  @keyframes mmreveal{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:none;}}
+  [data-reveal]{opacity:1;}
+  @supports (animation-timeline: view()){
+    @media (prefers-reduced-motion: no-preference){
+      [data-reveal]{animation:mmreveal linear both;animation-timeline:view();animation-range:entry 4% entry 38%;}
+    }
+  }
+  @media(max-width:860px){
+    [data-hero]{grid-template-columns:1fr !important;text-align:center;}
+    [data-hero-3d]{order:-1;min-height:300px !important;}
+    [data-hero] [data-cta]{justify-content:center;}
+    [data-hero] [data-meta]{justify-content:center;}
+    [data-about]{grid-template-columns:1fr !important;}
+    [data-navlinks]{display:none !important;}
+    [data-h1]{font-size:13vw !important;}
+  }
+</style>
+</helmet>
+<div style="background:#0A0E1A;color:#94A3B8;font-family:'Inter',system-ui,sans-serif;overflow-x:hidden;position:relative;min-height:100vh;">
+
+  <nav style="position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:16px 6vw;background:rgba(10,14,26,0.6);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.08);">
+    <a href="#top" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#2563EB,#7C3AED);font-family:'Space Grotesk',sans-serif;font-weight:700;color:#F8FAFC;font-size:15px;letter-spacing:0.5px;box-shadow:0 0 24px rgba(37,99,235,0.5);">MM</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#64748B;letter-spacing:1px;">mustafa.dev</span>
+    </a>
+    <div data-navlinks style="display:flex;align-items:center;gap:34px;">
+      <a href="#about" style="text-decoration:none;color:#94A3B8;font-size:14px;font-weight:500;transition:color .2s;" style-hover="color:#F8FAFC;">About</a>
+      <a href="#work" style="text-decoration:none;color:#94A3B8;font-size:14px;font-weight:500;transition:color .2s;" style-hover="color:#F8FAFC;">Work</a>
+      <a href="#contact" style="text-decoration:none;color:#94A3B8;font-size:14px;font-weight:500;transition:color .2s;" style-hover="color:#F8FAFC;">Contact</a>
+      <a href="#" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:10px;border:1px solid rgba(255,255,255,0.12);background:rgba(17,24,39,0.6);color:#F8FAFC;font-size:13px;font-weight:600;transition:all .2s;" style-hover="border-color:rgba(34,211,238,0.5);box-shadow:0 0 20px rgba(34,211,238,0.25);">Resume</a>
+    </div>
+  </nav>
+
+  <span id="top"></span>
+
+  <!-- HERO -->
+  <section style="position:relative;padding:96px 6vw 110px;max-width:1280px;margin:0 auto;overflow:hidden;">
+    <sc-if value="{{ showGrid }}" hint-placeholder-val="{{ true }}">
+      <div style="position:absolute;inset:-200px 0 0 0;z-index:0;background-image:linear-gradient(rgba(255,255,255,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.045) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 80% 60% at 50% 30%,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 30%,#000 30%,transparent 75%);pointer-events:none;"></div>
+    </sc-if>
+    <div style="position:absolute;top:-80px;left:35%;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,0.28),transparent 65%);filter:blur(40px);animation:mmaurora 16s ease-in-out infinite;pointer-events:none;z-index:0;"></div>
+    <div style="position:absolute;top:40px;right:0;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,0.24),transparent 65%);filter:blur(50px);animation:mmaurora 20s ease-in-out infinite reverse;pointer-events:none;z-index:0;"></div>
+
+    <div data-hero style="position:relative;z-index:2;display:grid;grid-template-columns:1.05fr 0.95fr;gap:48px;align-items:center;min-height:560px;">
+      <div>
+        <div data-reveal style="display:inline-flex;align-items:center;gap:10px;padding:7px 14px;border-radius:100px;border:1px solid rgba(255,255,255,0.1);background:rgba(17,24,39,0.5);margin-bottom:30px;">
+          <span style="width:7px;height:7px;border-radius:50%;background:#22D3EE;box-shadow:0 0 10px #22D3EE;animation:mmpulse 2s infinite;"></span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#94A3B8;letter-spacing:0.5px;">Available for select projects</span>
+        </div>
+        <h1 data-h1 data-reveal data-reveal-delay="60" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(40px,5.4vw,72px);line-height:1.02;letter-spacing:-0.02em;color:#F8FAFC;margin:0 0 24px;">I build complete web apps — from <span style="background:linear-gradient(120deg,#2563EB,#7C3AED 50%,#22D3EE);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% auto;animation:mmgrad 6s linear infinite;">code to production</span>.</h1>
+        <p data-reveal data-reveal-delay="120" style="font-size:clamp(16px,1.4vw,19px);line-height:1.6;color:#94A3B8;max-width:540px;margin:0 0 28px;">Full-stack developer crafting SaaS platforms, dashboards, and e-commerce experiences with Next.js, Node.js, and Laravel — engineered for scale, shipped with care.</p>
+        <div data-meta data-reveal data-reveal-delay="160" style="display:flex;align-items:center;gap:14px;margin-bottom:36px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#CBD5E1;flex-wrap:wrap;">
+          <span style="color:#F8FAFC;font-weight:600;">Mustafa Mahmoud</span>
+          <span style="color:#334155;">/</span>
+          <span style="color:#94A3B8;">Full-Stack Developer &amp; Team Lead @ Eaalim</span>
+        </div>
+        <div data-cta data-reveal data-reveal-delay="200" style="display:flex;gap:14px;flex-wrap:wrap;">
+          <a href="#work" style="text-decoration:none;display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:12px;background:linear-gradient(135deg,#2563EB,#7C3AED);color:#F8FAFC;font-size:15px;font-weight:600;box-shadow:0 8px 30px rgba(37,99,235,0.4);transition:transform .2s,box-shadow .2s;" style-hover="transform:translateY(-2px);box-shadow:0 12px 40px rgba(37,99,235,0.55);">View Work →</a>
+          <a href="#contact" style="text-decoration:none;display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:12px;border:1px solid rgba(255,255,255,0.14);background:rgba(17,24,39,0.5);color:#F8FAFC;font-size:15px;font-weight:600;transition:all .2s;" style-hover="border-color:rgba(34,211,238,0.5);box-shadow:0 0 24px rgba(34,211,238,0.2);">Get in Touch</a>
+        </div>
+      </div>
+
+      <div data-hero-3d style="position:relative;display:flex;align-items:center;justify-content:center;min-height:480px;">
+        <div style="position:absolute;width:62%;height:62%;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,0.4),rgba(124,58,237,0.2) 45%,transparent 70%);filter:blur(34px);animation:mmfloat 7s ease-in-out infinite;"></div>
+        <div style="position:absolute;width:88%;height:88%;border-radius:50%;border:1px solid rgba(34,211,238,0.12);animation:mmspin 28s linear infinite;"></div>
+        <div style="position:absolute;width:70%;height:70%;border-radius:50%;border:1px solid rgba(124,58,237,0.16);animation:mmspinr 22s linear infinite;"></div>
+        <sc-if value="{{ showSphere }}" hint-placeholder-val="{{ true }}">
+          <canvas ref="{{ sphereRef }}" style="position:relative;z-index:2;width:100%;height:480px;animation:mmfloat 8s ease-in-out infinite;"></canvas>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section style="position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 6vw;">
+    <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.08);border-radius:18px;overflow:hidden;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);">
+      <div style="background:rgba(17,24,39,0.6);padding:30px 26px;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:34px;color:#F8FAFC;">2+ <span style="font-size:16px;color:#22D3EE;">yrs</span></div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#64748B;margin-top:6px;letter-spacing:0.4px;">building &amp; shipping</div>
+      </div>
+      <div style="background:rgba(17,24,39,0.6);padding:30px 26px;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:34px;color:#F8FAFC;">700+</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#64748B;margin-top:6px;letter-spacing:0.4px;">families served</div>
+      </div>
+      <div style="background:rgba(17,24,39,0.6);padding:30px 26px;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:34px;color:#F8FAFC;">15+</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#64748B;margin-top:6px;letter-spacing:0.4px;">countries reached</div>
+      </div>
+      <div style="background:rgba(17,24,39,0.6);padding:30px 26px;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:34px;background:linear-gradient(120deg,#2563EB,#7C3AED);-webkit-background-clip:text;background-clip:text;color:transparent;">Team Lead</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#64748B;margin-top:6px;letter-spacing:0.4px;">@ Eaalim</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" style="position:relative;max-width:1180px;margin:0 auto;padding:130px 6vw 90px;">
+    <div data-reveal style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#22D3EE;letter-spacing:2px;margin-bottom:18px;">01 / ABOUT</div>
+    <div data-about style="display:grid;grid-template-columns:0.9fr 1.4fr;gap:56px;align-items:center;">
+      <div data-reveal style="position:relative;">
+        <div style="position:absolute;inset:-12px;border-radius:24px;background:linear-gradient(135deg,rgba(37,99,235,0.4),rgba(124,58,237,0.3));filter:blur(26px);"></div>
+        <div style="position:relative;aspect-ratio:4/5;border-radius:20px;border:1px solid rgba(255,255,255,0.1);overflow:hidden;background-color:#0d1424;background-image:repeating-linear-gradient(135deg,rgba(34,211,238,0.07) 0 2px,transparent 2px 13px);display:flex;align-items:center;justify-content:center;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#475569;text-align:center;padding:0 20px;">[ avatar / portrait<br>drop image here ]</span>
+        </div>
+      </div>
+      <div data-reveal data-reveal-delay="100">
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(28px,3.4vw,42px);line-height:1.12;letter-spacing:-0.02em;color:#F8FAFC;margin:0 0 22px;">Self-taught full-stack developer who grew into a Team Lead.</h2>
+        <p style="font-size:16px;line-height:1.7;color:#94A3B8;margin:0 0 18px;">I started by teaching myself to code and never stopped shipping. Two years in, I lead the development of <span style="color:#CBD5E1;">Eaalim</span> — a real-time learning platform serving 700+ families across 15+ countries — owning everything from architecture to production.</p>
+        <p style="font-size:16px;line-height:1.7;color:#94A3B8;margin:0 0 30px;">I care about clean systems, fast iteration, and interfaces that feel effortless. Whether it's a custom WebRTC classroom or a content-managed marketing site, I build the whole stack and take it all the way to deployment.</p>
+        <div style="display:flex;gap:30px;flex-wrap:wrap;">
+          <div><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;color:#F8FAFC;">Architecture → Deploy</div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#64748B;margin-top:4px;">end-to-end ownership</div></div>
+          <div><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;color:#F8FAFC;">Real-time systems</div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#64748B;margin-top:4px;">WebRTC · sockets</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section style="position:relative;max-width:1180px;margin:0 auto;padding:70px 6vw 90px;">
+    <div data-reveal style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#22D3EE;letter-spacing:2px;margin-bottom:18px;">02 / STACK</div>
+    <h2 data-reveal style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,3vw,38px);color:#F8FAFC;margin:0 0 40px;letter-spacing:-0.02em;">Tools I reach for daily</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;">
+      <sc-for list="{{ stack }}" as="t" hint-placeholder-count="8">
+        <div data-reveal data-reveal-delay="{{ t.delay }}" style="position:relative;padding:24px 22px;border-radius:16px;border:1px solid rgba(255,255,255,0.08);background:rgba(17,24,39,0.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:transform .25s,border-color .25s,box-shadow .25s;cursor:default;" style-hover="transform:translateY(-4px);border-color:rgba(34,211,238,0.4);box-shadow:0 12px 36px rgba(37,99,235,0.22);">
+          <div style="display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,rgba(37,99,235,0.25),rgba(124,58,237,0.18));border:1px solid rgba(255,255,255,0.1);font-family:'JetBrains Mono',monospace;font-weight:600;font-size:15px;color:#22D3EE;margin-bottom:16px;">{{ t.abbr }}</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;color:#F8FAFC;">{{ t.name }}</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#64748B;margin-top:5px;">{{ t.cat }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work" style="position:relative;max-width:1180px;margin:0 auto;padding:70px 6vw 90px;">
+    <div data-reveal style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#22D3EE;letter-spacing:2px;margin-bottom:18px;">03 / SELECTED WORK</div>
+    <h2 data-reveal style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,3vw,38px);color:#F8FAFC;margin:0 0 40px;letter-spacing:-0.02em;">Featured projects</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:24px;">
+      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="3">
+        <div data-reveal data-reveal-delay="{{ p.delay }}" style="position:relative;display:flex;flex-direction:column;border-radius:20px;border:1px solid rgba(255,255,255,0.08);background:rgba(17,24,39,0.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s;" style-hover="transform:translateY(-6px);border-color:rgba(34,211,238,0.4);box-shadow:0 20px 50px rgba(37,99,235,0.25);">
+          <div style="position:relative;height:190px;background-color:#0c1322;background-image:repeating-linear-gradient(45deg,rgba(34,211,238,0.06) 0 2px,transparent 2px 14px);display:flex;align-items:flex-end;justify-content:space-between;padding:16px;border-bottom:1px solid rgba(255,255,255,0.06);">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#475569;">{{ p.shot }}</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:11px;padding:5px 10px;border-radius:100px;border:1px solid rgba(255,255,255,0.12);background:rgba(10,14,26,0.6);color:{{ p.statusColor }};">{{ p.status }}</span>
+          </div>
+          <div style="padding:24px;display:flex;flex-direction:column;flex:1;">
+            <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px;color:#F8FAFC;margin:0 0 10px;">{{ p.title }}</h3>
+            <p style="font-size:14.5px;line-height:1.6;color:#94A3B8;margin:0 0 18px;flex:1;">{{ p.desc }}</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+              <sc-for list="{{ p.tags }}" as="tag" hint-placeholder-count="3">
+                <span style="font-family:'JetBrains Mono',monospace;font-size:11px;padding:5px 11px;border-radius:8px;background:rgba(37,99,235,0.12);border:1px solid rgba(37,99,235,0.22);color:#93C5FD;">{{ tag }}</span>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section style="position:relative;max-width:900px;margin:0 auto;padding:70px 6vw 90px;">
+    <div data-reveal style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#22D3EE;letter-spacing:2px;margin-bottom:18px;">04 / EXPERIENCE</div>
+    <h2 data-reveal style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,3vw,38px);color:#F8FAFC;margin:0 0 46px;letter-spacing:-0.02em;">From first commit to Team Lead</h2>
+    <div style="position:relative;padding-left:34px;">
+      <div style="position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,#22D3EE,#7C3AED,transparent);"></div>
+      <sc-for list="{{ timeline }}" as="e" hint-placeholder-count="3">
+        <div data-reveal data-reveal-delay="{{ e.delay }}" style="position:relative;padding-bottom:38px;">
+          <div style="position:absolute;left:-34px;top:4px;width:16px;height:16px;border-radius:50%;background:#0A0E1A;border:2px solid #22D3EE;box-shadow:0 0 14px rgba(34,211,238,0.6);"></div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#22D3EE;margin-bottom:8px;">{{ e.period }}</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:19px;color:#F8FAFC;">{{ e.role }}</div>
+          <div style="font-size:14px;color:#64748B;margin:3px 0 10px;">{{ e.org }}</div>
+          <p style="font-size:14.5px;line-height:1.6;color:#94A3B8;margin:0;max-width:560px;">{{ e.detail }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="position:relative;max-width:1100px;margin:40px auto 0;padding:0 6vw;">
+    <div data-reveal style="position:relative;border-radius:28px;border:1px solid rgba(255,255,255,0.1);overflow:hidden;padding:clamp(40px,6vw,84px) clamp(28px,5vw,72px);background:rgba(17,24,39,0.5);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);text-align:center;">
+      <div style="position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:560px;height:340px;background:radial-gradient(ellipse,rgba(37,99,235,0.35),rgba(124,58,237,0.18) 45%,transparent 70%);filter:blur(40px);pointer-events:none;"></div>
+      <div style="position:relative;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#22D3EE;letter-spacing:2px;margin-bottom:18px;">05 / CONTACT</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(32px,4.6vw,58px);line-height:1.05;letter-spacing:-0.02em;color:#F8FAFC;margin:0 auto 20px;max-width:680px;">Have something to build? Let's make it real.</h2>
+        <p style="font-size:17px;color:#94A3B8;max-width:520px;margin:0 auto 36px;line-height:1.6;">I'm open to full-stack roles and ambitious freelance projects. Drop a line — I reply fast.</p>
+        <a href="mailto:hello@mustafamahmoud.dev" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;padding:16px 32px;border-radius:14px;background:linear-gradient(135deg,#2563EB,#7C3AED);color:#F8FAFC;font-size:16px;font-weight:600;box-shadow:0 10px 36px rgba(37,99,235,0.45);transition:transform .2s,box-shadow .2s;" style-hover="transform:translateY(-2px);box-shadow:0 14px 46px rgba(37,99,235,0.6);">hello@mustafamahmoud.dev</a>
+        <div style="display:flex;gap:14px;justify-content:center;margin-top:30px;flex-wrap:wrap;">
+          <a href="#" style="text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:13px;padding:11px 22px;border-radius:11px;border:1px solid rgba(255,255,255,0.12);background:rgba(10,14,26,0.5);color:#CBD5E1;transition:all .2s;" style-hover="border-color:rgba(34,211,238,0.5);color:#F8FAFC;">LinkedIn ↗</a>
+          <a href="#" style="text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:13px;padding:11px 22px;border-radius:11px;border:1px solid rgba(255,255,255,0.12);background:rgba(10,14,26,0.5);color:#CBD5E1;transition:all .2s;" style-hover="border-color:rgba(34,211,238,0.5);color:#F8FAFC;">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="position:relative;max-width:1180px;margin:0 auto;padding:50px 6vw 44px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.06);margin-top:90px;">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,#2563EB,#7C3AED);font-family:'Space Grotesk',sans-serif;font-weight:700;color:#F8FAFC;font-size:13px;">MM</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#64748B;">© 2026 Mustafa Mahmoud</span>
+    </div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#475569;">Built from code to production.</div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900},&quot;showSphere&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;showGrid&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  sphereRef = React.createRef();
+
+  renderVals() {
+    return {
+      showSphere: this.props.showSphere ?? true,
+      showGrid: this.props.showGrid ?? true,
+      sphereRef: this.sphereRef,
+      stack: [
+        { name: 'Next.js', abbr: 'Nx', cat: 'react framework', delay: 0 },
+        { name: 'React', abbr: 'Re', cat: 'ui library', delay: 50 },
+        { name: 'TypeScript', abbr: 'Ts', cat: 'typed js', delay: 100 },
+        { name: 'Node.js', abbr: 'No', cat: 'runtime', delay: 150 },
+        { name: 'Laravel', abbr: 'La', cat: 'php framework', delay: 200 },
+        { name: 'Firebase', abbr: 'Fb', cat: 'backend / auth', delay: 250 },
+        { name: 'MongoDB', abbr: 'Mo', cat: 'database', delay: 300 },
+        { name: 'Tailwind', abbr: 'Tw', cat: 'styling', delay: 350 },
+      ],
+      projects: [
+        {
+          title: 'Eaalim Platform',
+          desc: 'A real-time learning platform with a custom WebRTC video classroom, interactive Quran reader, and full CMS — serving 700+ families across 15+ countries.',
+          tags: ['Next.js', 'WebRTC', 'Node.js', 'MongoDB'],
+          shot: '[ classroom dashboard ]',
+          status: 'Live',
+          statusColor: '#22D3EE',
+          delay: 0,
+        },
+        {
+          title: 'Note-Taking App',
+          desc: 'A fast, offline-friendly notes app with real-time sync, rich-text editing, and instant search — built on Next.js and Firebase.',
+          tags: ['Next.js', 'Firebase', 'TypeScript'],
+          shot: '[ notes ui ]',
+          status: 'Live',
+          statusColor: '#22D3EE',
+          delay: 80,
+        },
+        {
+          title: 'eaalim-lessons',
+          desc: 'A structured lesson-marketplace and scheduling experience for tutors and students. Currently in active development.',
+          tags: ['Next.js', 'Laravel', 'Tailwind'],
+          shot: '[ lessons preview ]',
+          status: 'Coming soon',
+          statusColor: '#A78BFA',
+          delay: 160,
+        },
+      ],
+      timeline: [
+        {
+          period: '2025 — Present',
+          role: 'Team Lead',
+          org: 'Eaalim',
+          detail: 'Leading platform development end-to-end — architecture, real-time systems, and shipping to production. Mentoring developers and owning the technical roadmap.',
+          delay: 0,
+        },
+        {
+          period: '2024 — 2025',
+          role: 'Full-Stack Developer',
+          org: 'Eaalim',
+          detail: 'Built the WebRTC classroom and CMS, scaled the product to 700+ families, and took ownership of the full Next.js + Node.js stack.',
+          delay: 90,
+        },
+        {
+          period: '2023 — 2024',
+          role: 'Frontend Developer',
+          org: 'Eaalim',
+          detail: 'Joined as a self-taught developer, shipped interactive learning interfaces, and grew into full-stack ownership within months.',
+          delay: 180,
+        },
+      ],
+    };
+  }
+
+  componentDidMount() {
+    if (this.props.showSphere ?? true) {
+      // wait a frame so the canvas is laid out
+      requestAnimationFrame(() => this.initSphere());
+    }
+  }
+
+  componentWillUnmount() {
+    cancelAnimationFrame(this.raf);
+    if (this._onMove) window.removeEventListener('mousemove', this._onMove);
+    if (this._resize) window.removeEventListener('resize', this._resize);
+  }
+
+  initSphere() {
+    const canvas = this.sphereRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    let W = 0, H = 0;
+    const resize = () => {
+      const r = canvas.getBoundingClientRect();
+      W = r.width; H = r.height;
+      if (!W || !H) return;
+      canvas.width = W * dpr; canvas.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+    resize();
+    this._resize = resize;
+    window.addEventListener('resize', resize);
+
+    const N = 170;
+    const pts = [];
+    for (let i = 0; i < N; i++) {
+      const y = 1 - (i / (N - 1)) * 2;
+      const rad = Math.sqrt(Math.max(0, 1 - y * y));
+      const theta = Math.PI * (3 - Math.sqrt(5)) * i;
+      pts.push({ x: Math.cos(theta) * rad, y: y, z: Math.sin(theta) * rad });
+    }
+
+    let mx = 0, my = 0, tmx = 0, tmy = 0;
+    const onMove = (e) => {
+      tmx = (e.clientX / window.innerWidth - 0.5);
+      tmy = (e.clientY / window.innerHeight - 0.5);
+    };
+    window.addEventListener('mousemove', onMove);
+    this._onMove = onMove;
+
+    let ang = 0;
+    const loop = () => {
+      if (!W || !H) { resize(); }
+      ang += 0.0024;
+      mx += (tmx - mx) * 0.045;
+      my += (tmy - my) * 0.045;
+      ctx.clearRect(0, 0, W, H);
+      const cx = W / 2, cy = H / 2;
+      const R = Math.min(W, H) * 0.38;
+      const rotY = ang + mx * 0.9;
+      const rotX = my * 0.7;
+      const cosY = Math.cos(rotY), sinY = Math.sin(rotY);
+      const cosX = Math.cos(rotX), sinX = Math.sin(rotX);
+      const proj = pts.map((p) => {
+        let x = p.x * cosY + p.z * sinY;
+        let z = -p.x * sinY + p.z * cosY;
+        let y = p.y;
+        let y2 = y * cosX - z * sinX;
+        let z2 = y * sinX + z * cosX;
+        return { sx: cx + x * R, sy: cy + y2 * R, z: z2 };
+      });
+      const maxD = R * 0.52;
+      for (let i = 0; i < proj.length; i++) {
+        for (let j = i + 1; j < proj.length; j++) {
+          const a = proj[i], b = proj[j];
+          const dx = a.sx - b.sx, dy = a.sy - b.sy;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < maxD) {
+            const depth = ((a.z + b.z) / 2 + 1) / 2;
+            const alpha = (1 - d / maxD) * 0.22 * (0.3 + depth * 0.7);
+            if (alpha > 0.01) {
+              ctx.strokeStyle = 'rgba(34,211,238,' + alpha.toFixed(3) + ')';
+              ctx.lineWidth = 0.6;
+              ctx.beginPath();
+              ctx.moveTo(a.sx, a.sy);
+              ctx.lineTo(b.sx, b.sy);
+              ctx.stroke();
+            }
+          }
+        }
+      }
+      proj.sort((a, b) => a.z - b.z);
+      proj.forEach((p) => {
+        const depth = (p.z + 1) / 2;
+        const size = 0.8 + depth * 2.0;
+        ctx.beginPath();
+        ctx.arc(p.sx, p.sy, size, 0, Math.PI * 2);
+        const r = Math.round(96 + depth * 110);
+        const g = Math.round(165 + depth * 70);
+        ctx.fillStyle = 'rgba(' + r + ',' + g + ',255,' + (0.28 + depth * 0.62).toFixed(3) + ')';
+        ctx.fill();
+      });
+      this.raf = requestAnimationFrame(loop);
+    };
+    loop();
+  }
+}
+</script>
+</body>
+</html>
