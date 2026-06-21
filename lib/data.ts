@@ -40,7 +40,7 @@ export type NavLink = { label: string; href: string };
 // TODO: غيّر `url` لدومينك الحقيقي بعد ما تنشر على Vercel أو تشتري دومين.
 export const siteConfig = {
   name: "Mustafa Mahmoud",
-  url: "https://mustafamovva.com",
+  url: "https://mustafamovva.vercel.app",
   jobTitle: "Full-Stack Web Developer",
   location: "Giza, Egypt",
   email: "mustafamovva@gmail.com",
