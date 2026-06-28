@@ -25,7 +25,7 @@ export default function Projects() {
             key={p.title}
             data-reveal
             style={{ animationDelay: `${p.delay}ms` }}
-            className="relative flex flex-col overflow-hidden rounded-[20px] border border-white/[0.08] bg-surface/[0.55] glass transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1.5 hover:border-cyan/40 hover:shadow-[0_20px_50px_rgba(37,99,235,0.25)]"
+            className="group relative flex flex-col overflow-hidden rounded-[20px] border border-white/[0.08] bg-surface/[0.55] glass transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1.5 hover:border-cyan/40 hover:shadow-[0_20px_50px_rgba(37,99,235,0.25)]"
           >
             {/* Project preview */}
             <div className="relative h-[190px] overflow-hidden border-b border-white/[0.06] bg-[#0c1322]">
@@ -35,7 +35,7 @@ export default function Projects() {
                   alt={p.alt ?? p.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 380px"
-                  className="object-cover object-top"
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.06]"
                 />
               ) : (
                 <span className="absolute bottom-4 left-4 font-mono text-[11px] text-faint">

@@ -72,23 +72,25 @@ export const stats: Stat[] = [
 
 export const stack: Tech[] = [
   { name: "Next.js", abbr: "Nx", cat: "react framework", delay: 0 },
-  { name: "React", abbr: "Re", cat: "ui library", delay: 50 },
-  { name: "TypeScript", abbr: "Ts", cat: "typed js", delay: 100 },
-  { name: "Node.js", abbr: "No", cat: "runtime", delay: 150 },
-  { name: "Laravel", abbr: "La", cat: "php framework", delay: 200 },
-  { name: "Firebase", abbr: "Fb", cat: "backend / auth", delay: 250 },
-  { name: "MongoDB", abbr: "Mo", cat: "database", delay: 300 },
-  { name: "Tailwind", abbr: "Tw", cat: "styling", delay: 350 },
+  { name: "React", abbr: "Re", cat: "ui library", delay: 40 },
+  { name: "TypeScript", abbr: "Ts", cat: "typed js", delay: 80 },
+  { name: "Node.js", abbr: "No", cat: "runtime", delay: 120 },
+  { name: "Laravel", abbr: "La", cat: "php framework", delay: 160 },
+  { name: "PostgreSQL", abbr: "Pg", cat: "database", delay: 200 },
+  { name: "MongoDB", abbr: "Mo", cat: "database", delay: 240 },
+  { name: "Payload CMS", abbr: "Pa", cat: "headless cms", delay: 280 },
+  { name: "Cloudflare", abbr: "Cf", cat: "cdn / edge", delay: 320 },
+  { name: "Tailwind", abbr: "Tw", cat: "styling", delay: 360 },
 ];
 
 export const projects: Project[] = [
   {
     title: "Eaalim Platform",
-    desc: "A real-time learning platform with a custom WebRTC video classroom, an interactive Quran reader, and a full CMS — serving 700+ families across 15+ countries.",
-    tags: ["Next.js", "WebRTC", "Node.js", "MongoDB"],
-    shot: "[ classroom dashboard ]",
+    desc: "A multilingual education platform built from scratch with Next.js 15, React 19, and a headless CMS (Payload + PostgreSQL) — featuring an interactive Quran reader, multi-layer caching, and full security hardening. Serves 700+ families across 15+ countries.",
+    tags: ["Next.js 15", "Payload CMS", "PostgreSQL", "TypeScript"],
+    shot: "[ education platform ]",
     image: "/projects/eaalim.png",
-    alt: "Eaalim platform UI — live video classroom, digital whiteboard, lessons sidebar, and an interactive Quran reader",
+    alt: "Eaalim platform UI — multilingual education platform with a library, course pages, and an interactive Quran reader",
     status: "Live",
     statusColor: "#22D3EE",
     delay: 0,
@@ -123,7 +125,7 @@ export const timeline: TimelineEntry[] = [
     role: "Full-Stack Web Developer & Team Lead",
     org: "Eaalim",
     detail:
-      "Lead a 3-developer team and own the platform end-to-end — architecture, real-time systems, and shipping to production. Built a custom WebRTC video classroom, an interactive Quran, and a full CMS serving 700+ families across 15+ countries.",
+      "Lead a 3-developer team and own the platform end-to-end. Built a multilingual (EN/AR/FR, RTL) education platform with Next.js 15 and a Payload + PostgreSQL headless CMS, an interactive Quran reader, multi-layer caching (TTFB 480ms → 50ms), and full security hardening — serving 700+ families across 15+ countries.",
     delay: 0,
   },
   {

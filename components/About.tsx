@@ -32,17 +32,19 @@ export default function About() {
             Self-taught full-stack developer who grew into a Team Lead.
           </h2>
           <p className="m-0 mb-[18px] text-base leading-[1.7] text-body">
-            I started by teaching myself to code and never stopped shipping. Two
-            years in, I lead the development of{" "}
-            <span className="text-[#CBD5E1]">Eaalim</span> — a real-time learning
-            platform serving 700+ families across 15+ countries — owning
-            everything from architecture to production.
+            I started by teaching myself to code and never stopped shipping.
+            Within two years, I went from Frontend Developer to Team Lead at{" "}
+            <span className="text-[#CBD5E1]">Eaalim</span>, where I lead the
+            development of a multilingual education platform serving 700+ families
+            across 15+ countries — owning everything from architecture to
+            production.
           </p>
           <p className="m-0 mb-[30px] text-base leading-[1.7] text-body">
-            I care about clean systems, fast iteration, and interfaces that feel
-            effortless. Whether it&apos;s a custom WebRTC classroom or a
-            content-managed marketing site, I build the whole stack and take it
-            all the way to deployment.
+            I care about clean systems, performance, and security. I built the
+            platform on Next.js 15 with a headless CMS (Payload + PostgreSQL),
+            engineered multi-layer caching that cut response times dramatically,
+            and hardened it with CSP, CSRF protection, and rate limiting —
+            building the whole stack and taking it all the way to deployment.
           </p>
           <div className="flex flex-wrap gap-[30px]">
             <div>
@@ -55,10 +57,10 @@ export default function About() {
             </div>
             <div>
               <div className="font-display text-[15px] font-semibold text-heading">
-                Real-time systems
+                Performance &amp; Security
               </div>
               <div className="mt-1 font-mono text-xs text-muted">
-                WebRTC · sockets
+                caching · CSP · RBAC
               </div>
             </div>
           </div>
