@@ -72,15 +72,17 @@ export const stats: Stat[] = [
 
 export const stack: Tech[] = [
   { name: "Next.js", abbr: "Nx", cat: "react framework", delay: 0 },
-  { name: "React", abbr: "Re", cat: "ui library", delay: 40 },
-  { name: "TypeScript", abbr: "Ts", cat: "typed js", delay: 80 },
-  { name: "Node.js", abbr: "No", cat: "runtime", delay: 120 },
-  { name: "Laravel", abbr: "La", cat: "php framework", delay: 160 },
-  { name: "PostgreSQL", abbr: "Pg", cat: "database", delay: 200 },
-  { name: "MongoDB", abbr: "Mo", cat: "database", delay: 240 },
-  { name: "Payload CMS", abbr: "Pa", cat: "headless cms", delay: 280 },
-  { name: "Cloudflare", abbr: "Cf", cat: "cdn / edge", delay: 320 },
-  { name: "Tailwind", abbr: "Tw", cat: "styling", delay: 360 },
+  { name: "React", abbr: "Re", cat: "ui library", delay: 35 },
+  { name: "TypeScript", abbr: "Ts", cat: "typed js", delay: 70 },
+  { name: "Node.js", abbr: "No", cat: "runtime", delay: 105 },
+  { name: "tRPC", abbr: "tR", cat: "type-safe api", delay: 140 },
+  { name: "Prisma", abbr: "Pr", cat: "orm", delay: 175 },
+  { name: "Laravel", abbr: "La", cat: "php framework", delay: 210 },
+  { name: "PostgreSQL", abbr: "Pg", cat: "database", delay: 245 },
+  { name: "MongoDB", abbr: "Mo", cat: "database", delay: 280 },
+  { name: "Payload CMS", abbr: "Pa", cat: "headless cms", delay: 315 },
+  { name: "Cloudflare", abbr: "Cf", cat: "cdn / edge", delay: 350 },
+  { name: "Tailwind", abbr: "Tw", cat: "styling", delay: 385 },
 ];
 
 export const projects: Project[] = [
@@ -107,14 +109,14 @@ export const projects: Project[] = [
     delay: 80,
   },
   {
-    title: "eaalim-lessons",
-    desc: "A new product I'm building at Eaalim to expand the platform's learning experience. Currently in active development.",
-    tags: ["Next.js", "Laravel", "Tailwind"],
-    shot: "[ lessons preview ]",
+    title: "Eaalim Lessons",
+    desc: "An Arabic-first interactive e-learning platform built on a modular-monolith + plugin architecture powering 55 reusable lesson-block types. Features a drag-and-drop lesson builder, server-scored attempts, gamification, Stripe billing, i18n (EN/FR, RTL), and a full CI/testing pipeline.",
+    tags: ["Next.js 16", "tRPC", "Prisma", "PostgreSQL"],
+    shot: "[ lessons platform ]",
     image: "/projects/lessons.png",
-    alt: "eaalim-lessons UI — tutor marketplace with course cards and a lesson booking calendar",
-    status: "Coming soon",
-    statusColor: "#A78BFA",
+    alt: "Eaalim Lessons UI — interactive learning platform with lesson blocks, a lesson builder, and progress tracking",
+    status: "Live",
+    statusColor: "#22D3EE",
     delay: 160,
   },
 ];
