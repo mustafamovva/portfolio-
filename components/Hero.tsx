@@ -42,9 +42,9 @@ export default function Hero() {
             data-reveal
             className="m-0 mb-7 mx-auto max-w-[540px] text-[clamp(16px,1.4vw,19px)] leading-[1.6] text-body md:mx-0"
           >
-            Full-stack developer crafting SaaS platforms, dashboards, and
-            e-commerce experiences with Next.js, Node.js, and Laravel —
-            engineered for scale, shipped with care.
+            Full-stack developer building complete web apps with Next.js,
+            TypeScript, Node.js, and tRPC — from the database to the UI, and
+            all the way to production.
           </p>
 
           <div

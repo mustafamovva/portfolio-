@@ -31,14 +31,14 @@ export const metadata: Metadata = {
     template: "%s | Mustafa Mahmoud",
   },
   description:
-    "Mustafa Mahmoud is a full-stack web developer and Team Lead at Eaalim, building production-ready SaaS platforms, dashboards, and e-commerce apps with Next.js, React, Node.js, and Laravel. Based in Giza, Egypt — available for roles and freelance projects.",
+    "Mustafa Mahmoud is a full-stack web developer and Team Lead at Eaalim, building complete, production-ready web apps with Next.js, React, TypeScript, Node.js, and tRPC. Based in Giza, Egypt — available for roles and freelance projects.",
   keywords: [
     "Mustafa Mahmoud",
     "Full-Stack Web Developer",
     "Next.js Developer",
     "React Developer",
     "Node.js Developer",
-    "Laravel Developer",
+    "TypeScript Developer",
     "Frontend Developer Egypt",
     "Web Developer Egypt",
     "Team Lead Eaalim",
@@ -67,13 +67,13 @@ export const metadata: Metadata = {
     siteName: "Mustafa Mahmoud",
     title: "Mustafa Mahmoud — Full-Stack Web Developer",
     description:
-      "Full-stack developer & Team Lead at Eaalim. Building SaaS platforms, dashboards, and e-commerce with Next.js, Node.js, and Laravel — from code to production.",
+      "Full-stack developer & Team Lead at Eaalim. Building complete web apps with Next.js, TypeScript, and Node.js — from code to production.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Mustafa Mahmoud — Full-Stack Web Developer",
     description:
-      "Full-stack developer & Team Lead at Eaalim. Next.js · Node.js · Laravel — from code to production.",
+      "Full-stack developer & Team Lead at Eaalim. Next.js · TypeScript · Node.js — from code to production.",
   },
 };
 
@@ -95,9 +95,10 @@ const personJsonLd = {
     "React",
     "TypeScript",
     "Node.js",
-    "Laravel",
+    "tRPC",
+    "Prisma",
+    "PostgreSQL",
     "Firebase",
-    "WebRTC",
     "Full-Stack Web Development",
   ],
   sameAs: siteConfig.sameAs,

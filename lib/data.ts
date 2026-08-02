@@ -77,12 +77,11 @@ export const stack: Tech[] = [
   { name: "Node.js", abbr: "No", cat: "runtime", delay: 105 },
   { name: "tRPC", abbr: "tR", cat: "type-safe api", delay: 140 },
   { name: "Prisma", abbr: "Pr", cat: "orm", delay: 175 },
-  { name: "Laravel", abbr: "La", cat: "php framework", delay: 210 },
-  { name: "PostgreSQL", abbr: "Pg", cat: "database", delay: 245 },
-  { name: "MongoDB", abbr: "Mo", cat: "database", delay: 280 },
-  { name: "Payload CMS", abbr: "Pa", cat: "headless cms", delay: 315 },
-  { name: "Cloudflare", abbr: "Cf", cat: "cdn / edge", delay: 350 },
-  { name: "Tailwind", abbr: "Tw", cat: "styling", delay: 385 },
+  { name: "PostgreSQL", abbr: "Pg", cat: "database", delay: 210 },
+  { name: "Payload CMS", abbr: "Pa", cat: "headless cms", delay: 245 },
+  { name: "Stripe", abbr: "St", cat: "payments", delay: 280 },
+  { name: "Cloudflare", abbr: "Cf", cat: "cdn / edge", delay: 315 },
+  { name: "Tailwind", abbr: "Tw", cat: "styling", delay: 350 },
 ];
 
 export const projects: Project[] = [

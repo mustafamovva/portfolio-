@@ -29,7 +29,7 @@ export default function Image() {
           Mustafa Mahmoud
         </div>
         <div style={{ display: "flex", fontSize: 36, color: "#94A3B8", marginTop: 26 }}>
-          Next.js · Node.js · Laravel — from code to production
+          Next.js · TypeScript · Node.js — from code to production
         </div>
         <div style={{ display: "flex", fontSize: 26, color: "#7C3AED", marginTop: 44, fontWeight: 600 }}>
           Team Lead @ Eaalim
