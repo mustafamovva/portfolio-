@@ -1,43 +1,7 @@
-// Central content for the portfolio — edit here to update copy across the site.
+// Central content for the portfolio. The shapes here follow the drawing-set
+// conventions the site is built on: a bill of materials for the stack, a
+// revision history for the career, numbered notes for the write-up.
 
-export type Stat = {
-  value: string;
-  unit?: string;
-  label: string;
-  gradient?: boolean;
-};
-
-export type Tech = {
-  name: string;
-  abbr: string;
-  cat: string;
-  delay: number;
-};
-
-export type Project = {
-  title: string;
-  desc: string;
-  tags: string[];
-  shot: string;
-  image?: string;
-  alt?: string;
-  status: string;
-  statusColor: string;
-  delay: number;
-};
-
-export type TimelineEntry = {
-  period: string;
-  role: string;
-  org: string;
-  detail: string;
-  delay: number;
-};
-
-export type NavLink = { label: string; href: string };
-
-// Site-wide config (used for SEO: metadata, sitemap, robots, JSON-LD).
-// TODO: غيّر `url` لدومينك الحقيقي بعد ما تنشر على Vercel أو تشتري دومين.
 export const siteConfig = {
   name: "Mustafa Mahmoud",
   url: "https://mustafamovva.vercel.app",
@@ -52,100 +16,196 @@ export const siteConfig = {
 
 export const contactLinks = {
   email: "mustafamovva@gmail.com",
+  phone: "+20 155 273 5127",
   resume: "/Mustafa-Mahmoud-CV.pdf",
   linkedin: "https://www.linkedin.com/in/mustafa-movva/",
   github: "https://github.com/mustafamovva",
 };
 
-export const navLinks: NavLink[] = [
-  { label: "About", href: "#about" },
-  { label: "Work", href: "#work" },
-  { label: "Contact", href: "#contact" },
-];
+/* ---- Sheet A-101: the quantities, drawn as dimensions ---- */
+export type Measure = { value: string; label: string };
 
-export const stats: Stat[] = [
-  { value: "2+", unit: "yrs", label: "building & shipping" },
+export const measures: Measure[] = [
+  { value: "2+", label: "years shipping" },
   { value: "700+", label: "families served" },
   { value: "15+", label: "countries reached" },
-  { value: "Team Lead", label: "@ Eaalim", gradient: true },
+  { value: "3", label: "languages supported" },
 ];
 
-export const stack: Tech[] = [
-  { name: "Next.js", abbr: "Nx", cat: "react framework", delay: 0 },
-  { name: "React", abbr: "Re", cat: "ui library", delay: 35 },
-  { name: "TypeScript", abbr: "Ts", cat: "typed js", delay: 70 },
-  { name: "Node.js", abbr: "No", cat: "runtime", delay: 105 },
-  { name: "tRPC", abbr: "tR", cat: "type-safe api", delay: 140 },
-  { name: "Prisma", abbr: "Pr", cat: "orm", delay: 175 },
-  { name: "PostgreSQL", abbr: "Pg", cat: "database", delay: 210 },
-  { name: "Payload CMS", abbr: "Pa", cat: "headless cms", delay: 245 },
-  { name: "Stripe", abbr: "St", cat: "payments", delay: 280 },
-  { name: "Cloudflare", abbr: "Cf", cat: "cdn / edge", delay: 315 },
-  { name: "Tailwind", abbr: "Tw", cat: "styling", delay: 350 },
+/* ---- Sheet A-201: general notes ---- */
+export const generalNotes: string[] = [
+  "Self-taught. I learned by building things that had to work, not by collecting certificates, and I still have no degree — the work is the argument.",
+  "Joined Eaalim Institute in January 2024 as a frontend developer. Fifteen months later I was leading the team.",
+  "I now lead three developers and own the platform end to end, from the PostgreSQL data layer and the API up to the interface people actually touch.",
+  "Two products are in daily production use: eaalim.com and eaalim.com/lessons, serving 700+ families across 15+ countries in Arabic, English and French.",
+  "I keep building in the open to stay sharp. LinkFlow is live and its source is public.",
+  "Open to freelance work and full-time roles, remote or in Egypt.",
 ];
+
+/* ---- Sheet A-301: bill of materials ---- */
+export type Part = {
+  item: string;
+  qty: string;
+  name: string;
+  spec: string;
+};
+
+export const billOfMaterials: Part[] = [
+  { item: "001", qty: "1", name: "Next.js", spec: "v16 · App Router, Server Components" },
+  { item: "002", qty: "1", name: "React", spec: "v19" },
+  { item: "003", qty: "1", name: "TypeScript", spec: "strict mode throughout" },
+  { item: "004", qty: "1", name: "Node.js", spec: "server runtime" },
+  { item: "005", qty: "1", name: "tRPC", spec: "end-to-end typed API layer" },
+  { item: "006", qty: "1", name: "Prisma", spec: "ORM · schema migrations" },
+  { item: "007", qty: "1", name: "PostgreSQL", spec: "primary datastore" },
+  { item: "008", qty: "1", name: "Payload CMS", spec: "headless · 15+ collections, RBAC" },
+  { item: "009", qty: "1", name: "Stripe", spec: "subscription billing" },
+  { item: "010", qty: "1", name: "Cloudflare", spec: "CDN · R2 · Turnstile" },
+  { item: "011", qty: "1", name: "Tailwind CSS", spec: "styling system" },
+  { item: "012", qty: "1", name: "Firebase", spec: "auth · Firestore" },
+];
+
+/* ---- Sheets A-401 … A-404: detail drawings ---- */
+export type Project = {
+  mark: string;
+  title: string;
+  desc: string;
+  tags: string[];
+  image?: string;
+  alt?: string;
+  status: string;
+  href?: string;
+  repo?: string;
+  domain?: string;
+  highlight?: string;
+  period?: string;
+  /** Annotations pointing at what matters in the drawing. */
+  notes: string[];
+};
 
 export const projects: Project[] = [
   {
+    mark: "A",
     title: "Eaalim Platform",
-    desc: "A multilingual education platform built from scratch with Next.js 15, React 19, and a headless CMS (Payload + PostgreSQL) — featuring an interactive Quran reader, multi-layer caching, and full security hardening. Serves 700+ families across 15+ countries.",
-    tags: ["Next.js 15", "Payload CMS", "PostgreSQL", "TypeScript"],
-    shot: "[ education platform ]",
+    desc: "The institute's main platform, teaching Quran, Tajweed and Arabic across 15+ countries. Its centrepiece is Mushaf Aalim, a colour-coded Qur'an that highlights each syllable as a beginner reads. I started on the frontend and now lead the platform end to end.",
+    tags: ["Next.js 15", "React 19", "Payload CMS", "PostgreSQL", "TypeScript"],
     image: "/projects/eaalim.png",
-    alt: "Eaalim platform UI — multilingual education platform with a library, course pages, and an interactive Quran reader",
-    status: "Live",
-    statusColor: "#22D3EE",
-    delay: 0,
+    alt: "Eaalim platform home page — an online Quran school with course, pricing and library navigation, and the Mushaf Aalim colour-coded reader",
+    status: "In production",
+    href: "https://eaalim.com",
+    domain: "eaalim.com",
+    highlight: "700+ families · 15+ countries · 3 languages",
+    period: "2024 — present",
+    notes: [
+      "Headless CMS on Payload + PostgreSQL, 15+ collections with role-based access",
+      "Multi-layer caching: Next.js ISR behind Cloudflare edge",
+      "Full RTL alongside English and French, with per-locale routing",
+    ],
   },
   {
+    mark: "B",
     title: "Eaalim Lessons",
-    desc: "An Arabic-first interactive e-learning platform built on a modular-monolith + plugin architecture powering 55 reusable lesson-block types. Features a drag-and-drop lesson builder, server-scored attempts, gamification, Stripe billing, i18n (EN/FR, RTL), and a full CI/testing pipeline.",
-    tags: ["Next.js 16", "tRPC", "Prisma", "PostgreSQL"],
-    shot: "[ lessons platform ]",
+    desc: "An interactive learning product built on a modular-monolith and plugin architecture, with a drag-and-drop lesson builder and server-scored attempts.",
+    tags: ["Next.js 16", "tRPC", "Prisma", "PostgreSQL", "Stripe"],
     image: "/projects/lessons.png",
-    alt: "Eaalim Lessons UI — interactive learning platform with lesson blocks, a lesson builder, and progress tracking",
-    status: "Live",
-    statusColor: "#22D3EE",
-    delay: 80,
+    alt: "Eaalim Lessons admin dashboard — active students, completion rate and enrollment trend for the learning platform",
+    status: "In production",
+    href: "https://eaalim.com/lessons",
+    domain: "eaalim.com/lessons",
+    highlight: "55 lesson-block types · drag-and-drop builder",
+    period: "2026 — present",
+    notes: [
+      "55 reusable lesson-block types behind one plugin interface",
+      "Stripe subscription billing with a full CI and testing pipeline",
+      "Internationalised end to end, right-to-left included",
+    ],
   },
   {
+    mark: "C",
     title: "LinkFlow",
-    desc: "A URL shortener with analytics, shipped end to end. Create short links with custom slugs; each one tracks its clicks by device, browser, and referrer across a dashboard and per-link charts. Includes QR codes, GitHub auth, and light/dark themes. Built with Next.js 16, tRPC, Prisma, and PostgreSQL — live and open-source.",
-    tags: ["Next.js 16", "tRPC", "Prisma", "PostgreSQL"],
-    shot: "[ analytics dashboard ]",
+    desc: "A URL shortener with analytics, taken all the way from an empty README to a deployed product in fifteen days. Open source.",
+    tags: ["Next.js 16", "tRPC", "Prisma", "PostgreSQL", "NextAuth"],
     image: "/projects/linkflow.png",
-    alt: "LinkFlow UI — a URL shortener dashboard showing links, click counts, and analytics charts",
-    status: "Live",
-    statusColor: "#22D3EE",
-    delay: 160,
+    alt: "LinkFlow home page — paste a long URL and get a short link, with click, device and referrer analytics behind it",
+    status: "Live · open source",
+    href: "https://link-flow-movva.vercel.app",
+    repo: "https://github.com/mustafamovva/link-flow",
+    domain: "link-flow-movva.vercel.app",
+    highlight: "Built and shipped in 15 days",
+    period: "2026",
+    notes: [
+      "Click tracking by device, browser and referrer, charted per link",
+      "GitHub auth so each account sees only its own links",
+      "Redirects use 302, not 301 — a 301 gets cached and the count stops",
+    ],
   },
   {
-    title: "Note-Taking App",
-    desc: "An internal team tool for creating, editing, and managing notes — with authentication and real-time sync, built on Next.js, Firebase, and Firestore.",
+    mark: "D",
+    title: "Support Notes",
+    desc: "An internal tool the support team at Eaalim writes and keeps its notes in, with accounts and real-time sync across devices. Built for a need the team actually had.",
     tags: ["Next.js", "Firebase", "Firestore"],
-    shot: "[ notes ui ]",
     image: "/projects/notes.png",
-    alt: "Note-taking app UI — notes sidebar, rich-text editor, and search",
-    status: "Live",
-    statusColor: "#22D3EE",
-    delay: 240,
+    alt: "Support Notes sign-in screen — the internal note-taking tool built for the Eaalim team",
+    status: "In use",
+    domain: "internal tool",
+    highlight: "Used across the team at Eaalim",
+    period: "2025",
+    notes: [
+      "Firebase Auth with Firestore, so notes sync between devices as they are written",
+      "Accounts are keyed to the team's own domain, so signing in is one field",
+    ],
   },
 ];
 
-export const timeline: TimelineEntry[] = [
+/* ---- Sheet A-501: revision history ---- */
+export type Revision = {
+  rev: string;
+  date: string;
+  description: string;
+  by: string;
+};
+
+export const revisions: Revision[] = [
   {
-    period: "Apr 2025 — Present",
-    role: "Full-Stack Web Developer & Team Lead",
-    org: "Eaalim",
-    detail:
-      "Lead a 3-developer team and own the platform end-to-end. Built a multilingual (EN/AR/FR, RTL) education platform with Next.js 15 and a Payload + PostgreSQL headless CMS, an interactive Quran reader, multi-layer caching (TTFB 480ms → 50ms), and full security hardening — serving 700+ families across 15+ countries.",
-    delay: 0,
+    rev: "00",
+    date: "Jan 2024",
+    description:
+      "Issued for construction. Joined Eaalim Institute as a frontend developer, building production interfaces with Next.js, React and Tailwind.",
+    by: "MM",
   },
   {
-    period: "Jan 2024 — Apr 2025",
-    role: "Frontend Developer",
-    org: "Eaalim",
-    detail:
-      "Joined as a self-taught developer and shipped responsive, high-performance interfaces with Next.js, React, and Tailwind — then grew into full-stack ownership and a lead role.",
-    delay: 90,
+    rev: "01",
+    date: "Feb 2024",
+    description:
+      "Eaalim Platform started. Contributed the multilingual interface across Arabic, English and French, and the reusable component set behind it.",
+    by: "MM",
+  },
+  {
+    rev: "02",
+    date: "Apr 2025",
+    description:
+      "Scope extended to full stack. Promoted to Team Lead — three developers, and ownership of the platform from the data layer up.",
+    by: "MM",
+  },
+  {
+    rev: "03",
+    date: "2025",
+    description:
+      "Platform architecture reissued: headless Payload CMS on PostgreSQL, multi-layer caching, and security hardening across the stack.",
+    by: "MM",
+  },
+  {
+    rev: "04",
+    date: "Apr 2026",
+    description:
+      "Eaalim Lessons issued to production — modular-monolith and plugin architecture, 55 lesson-block types, Stripe billing.",
+    by: "MM",
+  },
+  {
+    rev: "05",
+    date: "Aug 2026",
+    description:
+      "LinkFlow released and opened. First of a public series, built end to end in fifteen days.",
+    by: "MM",
   },
 ];

@@ -1,12 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <defs>
-    <linearGradient id="mm" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#2563EB" />
-      <stop offset="1" stop-color="#7C3AED" />
-    </linearGradient>
-  </defs>
-  <rect width="64" height="64" rx="16" fill="url(#mm)" />
-  <text x="32" y="33" text-anchor="middle" dominant-baseline="central"
-        font-family="'Segoe UI', Arial, sans-serif" font-size="29" font-weight="700"
-        letter-spacing="-1.5" fill="#ffffff">MM</text>
+  <rect width="64" height="64" fill="#DEE3E1" />
+  <g stroke="#A6B0BE" stroke-width="1">
+    <path d="M16 0v64M32 0v64M48 0v64M0 16h64M0 32h64M0 48h64" />
+  </g>
+  <rect x="4.5" y="4.5" width="55" height="55" fill="none" stroke="#16233A" stroke-width="2" />
+  <text x="32" y="34" text-anchor="middle" dominant-baseline="central"
+        font-family="'IBM Plex Mono', 'Consolas', monospace" font-size="24" font-weight="600"
+        letter-spacing="1" fill="#16233A">MM</text>
+  <circle cx="52" cy="52" r="4" fill="none" stroke="#C03A28" stroke-width="1.6" stroke-dasharray="3 2" />
 </svg>

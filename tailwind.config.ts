@@ -9,63 +9,58 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Exact palette from the design brief
-        base: "#0A0E1A", // deep space navy / near-black background
-        surface: "#111827", // cards / surfaces
-        primary: "#2563EB", // electric blue
-        violet: "#7C3AED", // gradient accent end
-        cyan: "#22D3EE", // glow / highlight accent
-        heading: "#F8FAFC", // heading text
-        body: "#94A3B8", // body text
-        muted: "#64748B",
-        faint: "#475569",
+        /* The drafting table the sheets are laid on */
+        table: "#C6CDCA",
+        "table-deep": "#B4BCB9",
+
+        /* Paper */
+        paper: "#DEE3E1",
+        "paper-hi": "#ECEFED",
+        "paper-sunk": "#D2D8D6",
+
+        /* Ink — one hue, four depths, the way a drawing uses line weights */
+        ink: "#16233A",
+        "ink-2": "#3B4C68",
+        "ink-3": "#75849B",
+        "ink-4": "#A6B0BE",
+
+        /* The annotation layer: corrections, revisions, the human voice */
+        redline: "#C03A28",
+        "redline-2": "#D98274",
+
+        /* Reproduction print — used whole-sheet on the detail plates */
+        blueprint: "#0E2E4F",
+        "blueprint-deep": "#0A2440",
+        "blueprint-line": "#DCE9F2",
+        "blueprint-2": "#8FB4D2",
+        "blueprint-3": "#4F7BA3",
       },
       fontFamily: {
-        display: ["var(--font-space-grotesk)", "sans-serif"],
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        mono: ["var(--font-jetbrains-mono)", "monospace"],
+        display: ["var(--font-archivo)", "Helvetica Neue", "Arial", "sans-serif"],
+        sans: ["var(--font-archivo)", "Helvetica Neue", "Arial", "sans-serif"],
+        mono: ["var(--font-plex-mono)", "ui-monospace", "Menlo", "monospace"],
+      },
+      letterSpacing: {
+        note: "0.14em",
+        stamp: "0.22em",
       },
       keyframes: {
-        mmfloat: {
+        mmblink: {
+          "0%,49%": { opacity: "1" },
+          "50%,100%": { opacity: "0" },
+        },
+        mmdash: {
+          to: { strokeDashoffset: "-24" },
+        },
+        mmdrift: {
           "0%,100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-14px)" },
-        },
-        mmspin: {
-          from: { transform: "rotate(0deg)" },
-          to: { transform: "rotate(360deg)" },
-        },
-        mmspinr: {
-          from: { transform: "rotate(0deg)" },
-          to: { transform: "rotate(-360deg)" },
-        },
-        mmaurora: {
-          "0%": { transform: "translate(0,0) scale(1)" },
-          "33%": { transform: "translate(4%,-3%) scale(1.08)" },
-          "66%": { transform: "translate(-3%,3%) scale(0.96)" },
-          "100%": { transform: "translate(0,0) scale(1)" },
-        },
-        mmpulse: {
-          "0%,100%": { opacity: "0.5" },
-          "50%": { opacity: "1" },
-        },
-        mmgrad: {
-          "0%": { backgroundPosition: "0% 50%" },
-          "100%": { backgroundPosition: "200% 50%" },
-        },
-        mmreveal: {
-          from: { opacity: "0", transform: "translateY(28px)" },
-          to: { opacity: "1", transform: "none" },
+          "50%": { transform: "translateY(-10px)" },
         },
       },
       animation: {
-        float: "mmfloat 7s ease-in-out infinite",
-        "float-slow": "mmfloat 8s ease-in-out infinite",
-        spin28: "mmspin 28s linear infinite",
-        spinr22: "mmspinr 22s linear infinite",
-        aurora: "mmaurora 16s ease-in-out infinite",
-        "aurora-rev": "mmaurora 20s ease-in-out infinite reverse",
-        pulse2: "mmpulse 2s infinite",
-        grad: "mmgrad 6s linear infinite",
+        blink: "mmblink 1.1s steps(1) infinite",
+        dash: "mmdash 1.4s linear infinite",
+        drift: "mmdrift 9s ease-in-out infinite",
       },
     },
   },

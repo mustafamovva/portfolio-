@@ -1,26 +1,19 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import { Archivo, IBM_Plex_Mono } from "next/font/google";
 import { siteConfig } from "@/lib/data";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const archivo = Archivo({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-space-grotesk",
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-archivo",
   display: "swap",
 });
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
+const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
-  variable: "--font-jetbrains-mono",
+  variable: "--font-plex-mono",
   display: "swap",
 });
 
@@ -112,7 +105,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} font-sans bg-base text-body antialiased`}
+        className={`${archivo.variable} ${plexMono.variable} bg-table font-sans text-ink antialiased`}
       >
         {children}
         <script
